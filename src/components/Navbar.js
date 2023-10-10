@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   //
@@ -12,7 +13,7 @@ export default function Navbar(props) {
     { name: "Blue", backgroundColor: "blue" },
     { name: "Green", backgroundColor: "green" },
     { name: "Yellow", backgroundColor: "yellow" },
-    { name: "Purple", backgroundColor: "purple" }
+    { name: "Purple", backgroundColor: "purple" },
   ];
   const handleColorChange = (color) => {
     document.body.style.backgroundColor = color;
@@ -22,25 +23,23 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <a
-          className="navbar-brand"
-          href="/"
-          style={{
-            color:
-              // props.clr === "danger"
-              //   ? "red"
-              //   : "dark"
-              //   ? "grey"
-              //   : "success"
-              //   ? "green"
-              //   : 
-              props.mode === "dark"
-                ? "white"
-                : "black",
-          }}
-        >
-          {props.title}
-        </a>
+          <Link
+            className="navbar-brand"
+            to="/"
+            style={{
+              color:
+                // props.clr === "danger"
+                //   ? "red"
+                //   : "dark"
+                //   ? "grey"
+                //   : "success"
+                //   ? "green"
+                //   :
+                props.mode === "dark" ? "white" : "black",
+            }}
+          >
+            {props.title}
+          </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -55,14 +54,14 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
-                {props.aboutText}
-              </a>
+            <Link className="nav-link " to="/about">
+              {props.aboutText}
+            </Link>
             </li>
           </ul>
           {/* <form className="d-flex" role="search">
@@ -86,21 +85,21 @@ export default function Navbar(props) {
           </select> */}
           {/*  */}
           <div>
-          {colorOptions.map((colorOption, index) => (
-            <button
-              key={index}
-              onClick={() => handleColorChange(colorOption.backgroundColor)}
-              className="btn mx-1"
-              style={{
-                backgroundColor: colorOption.backgroundColor,
-                color: "black",
-              }}
-            >
-              {colorOption.name}
-            </button>
-          ))}
-        </div>
-        {/*  */}
+            {colorOptions.map((colorOption, index) => (
+              <button
+                key={index}
+                onClick={() => handleColorChange(colorOption.backgroundColor)}
+                className="btn mx-1"
+                style={{
+                  backgroundColor: colorOption.backgroundColor,
+                  color: "black",
+                }}
+              >
+                {colorOption.name}
+              </button>
+            ))}
+          </div>
+          {/*  */}
           {/*  */}
           <div
             className={`form-check form-switch text-${
