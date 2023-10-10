@@ -4,20 +4,16 @@ import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   //
-  // function handleOnChange(event){
-  //   props.cMode(event)
-  // }
-  //
   // Array of color options
-  const colorOptions = [
-    { name: "Blue", backgroundColor: "blue" },
-    { name: "Green", backgroundColor: "green" },
-    { name: "Yellow", backgroundColor: "yellow" },
-    { name: "Purple", backgroundColor: "purple" },
-  ];
-  const handleColorChange = (color) => {
-    document.body.style.backgroundColor = color;
-  };
+  // const colorOptions = [
+  //   { name: "Blue", backgroundColor: "blue" },
+  //   { name: "Green", backgroundColor: "green" },
+  //   { name: "Yellow", backgroundColor: "yellow" },
+  //   { name: "Purple", backgroundColor: "purple" },
+  // ];
+  // const handleColorChange = (color) => {
+  //   document.body.style.backgroundColor = color;
+  // };
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
@@ -28,13 +24,6 @@ export default function Navbar(props) {
             to="/"
             style={{
               color:
-                // props.clr === "danger"
-                //   ? "red"
-                //   : "dark"
-                //   ? "grey"
-                //   : "success"
-                //   ? "green"
-                //   :
                 props.mode === "dark" ? "white" : "black",
             }}
           >
@@ -64,6 +53,8 @@ export default function Navbar(props) {
             </Link>
             </li>
           </ul>
+          {/*  */}
+          {/* Search Box */}
           {/* <form className="d-flex" role="search">
             <input
               className="form-control me-2"
@@ -76,15 +67,9 @@ export default function Navbar(props) {
             </button>
           </form> */}
           {/*  */}
-          {/* <select class="form-select" aria-label="Default select example" onChange={handleOnChange(this.value)}>
-            <option selected>Select Color Mode</option>
-            <option value="red">RED</option>
-            <option value="green">GREEN</option>
-            <option value="black">BLACK</option>
-            <option value="default">DEFAULT</option>
-          </select> */}
+          {/* Color Mode  */}
           {/*  */}
-          <div>
+          {/* <div>
             {colorOptions.map((colorOption, index) => (
               <button
                 key={index}
@@ -98,7 +83,7 @@ export default function Navbar(props) {
                 {colorOption.name}
               </button>
             ))}
-          </div>
+          </div> */}
           {/*  */}
           {/*  */}
           <div

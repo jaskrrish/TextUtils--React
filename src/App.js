@@ -5,7 +5,6 @@ import TextForm from "./components/TextForm";
 import React, { useState } from "react";
 import About from "./components/About";
 //React Router DOM
-// import {createBrowserRouter, createRoutesFromElements,Route,Link, RouterProvider} from "react-router-dom"
 import { BrowserRouter,Route, Routes } from "react-router-dom";
 //
 function App() {
@@ -15,7 +14,6 @@ function App() {
   //Whether dark mode is enabled or not
   const [mode, setMode] = useState("light");
   //
-  // const [clr, setClr] = useState("primary");
   //
   const [alert, setAlert] = useState(null);
   //
@@ -44,53 +42,19 @@ function App() {
       document.title = "TextUtlis | LightMode";
     }
   };
-  //Color Mode
-  // const cMode = (clr) => {
-  //   if (clr === "red") {
-  //     document.body.style.color = "red";
-  //     setClr("danger");
-  //   } else if (clr === "black") {
-  //     document.body.style.color = "grey";
-  //     setClr("dark");
-  //   } else if (clr === "green") {
-  //     document.body.style.color = "green";
-  //     setClr("success");
-  //   } else if (clr === "def") {
-  //     setClr("primary");
-  //   }
-  // };
-  //
-  // const router = createBrowserRouter(
-  //   createRoutesFromElements(
-  //     <Route path="/" element={<Root />} >
-  //         <Route path="/" index element={
-  //           <TextForm
-  //               showAlert={showAlert}
-  //               heading="Enter the text to analyze below"
-  //               mode={mode}
-  //             />} />
-  //         <Route path="/about" element={<About/>} />
-  //     </Route>
-  //   )
-  // )
-  //
-
   return (
     <>
-      {/* <Navbar title="TextUtils" aboutText="About TextUtils"/> */}
         <BrowserRouter>
           <Navbar
               title="TextUtils"
               mode={mode}
               toggleMode={toggleMode}
-              // cMode={cMode}
-              // clr={clr}
             />
           <Alert alert={alert} />
           <div className="container my-3">
           <Routes>
             <Route
-              path="/"
+              exact path="/"
               element={
                 <TextForm
                   showAlert={showAlert}
@@ -103,22 +67,7 @@ function App() {
           </Routes>
           </div>
         </BrowserRouter>
-        {/* <RouterProvider router={router} /> */}
-        {/* <TextForm
-                showAlert={showAlert}
-                heading="Enter the text to analyze below"
-                mode={mode}
-              /> */}
-        {/* <About /> */}
     </>
   );
 }
-// const Root =()=>{
-//   return <>
-//    <div>
-//      <Link to="/">Home</Link>
-//      <Link to="/about" >About</Link>
-//     </div></>
-// }
-//
 export default App;
